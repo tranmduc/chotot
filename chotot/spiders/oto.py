@@ -5,7 +5,7 @@ from datetime import datetime
 from chotot.items import Oto
 import leveldb
 
-db = leveldb.LevelDB("oto")
+db = leveldb.LevelDB("db/oto")
 
 def insert(item):
      db.Put(item['id'].encode('UTF-8'), item['tel'].encode('UTF-8'))
@@ -24,8 +24,9 @@ def validate_time(string):
 class OtoSpider(scrapy.Spider):
     name = 'oto'
     start_urls = ['http://xe.chotot.com/mua-ban-oto/']
-    custom_settings = {'FEED_URI': "chotot_oto_%(time)s.csv",
+    custom_settings = {'FEED_URI': "output/chotot_oto_%(time)s.csv",
                        'FEED_FORMAT': 'csv'}
+
 
     def parse(self, response):
         item_urls = response.xpath('//*[@class="styles__AdItemLayout-sc-1s892rt-0 gMQvHZ"]/li/a/@href').extract()

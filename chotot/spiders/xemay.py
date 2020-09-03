@@ -5,7 +5,7 @@ from datetime import datetime
 from chotot.items import Xemay
 import leveldb
 
-db = leveldb.LevelDB("xemay")
+db = leveldb.LevelDB("db/xemay")
 
 def insert(item):
      db.Put(item['id'].encode('UTF-8'), item['tel'].encode('UTF-8'))
@@ -24,7 +24,7 @@ def validate_time(string):
 class XemaySpider(scrapy.Spider):
     name = 'xemay'
     start_urls = ['http://xe.chotot.com/mua-ban-xe-may/']
-    custom_settings = {'FEED_URI': "chotot_xemay_%(time)s.csv",
+    custom_settings = {'FEED_URI': "output/chotot_xemay_%(time)s.csv",
                        'FEED_FORMAT': 'csv'}
 
     def parse(self, response):

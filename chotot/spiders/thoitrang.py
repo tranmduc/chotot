@@ -5,7 +5,7 @@ from datetime import datetime
 from chotot.items import generalItem
 import leveldb
 
-db = leveldb.LevelDB("thoitrang")
+db = leveldb.LevelDB("db/thoitrang")
 
 def insert(item):
      db.Put(item['id'].encode('UTF-8'), item['tel'].encode('UTF-8'))
@@ -23,7 +23,7 @@ def validate_time(string):
 class ThoitrangSpider(scrapy.Spider):
     name = 'thoitrang'
     start_urls = ['http://www.chotot.com/toan-quoc/mua-ban-thoi-trang-do-dung-ca-nhan/']
-    custom_settings = {'FEED_URI': "chotot_thoitrang_%(time)s.csv",
+    custom_settings = {'FEED_URI': "output/chotot_thoitrang_%(time)s.csv",
                        'FEED_FORMAT': 'csv'}
 
     def parse(self, response):
