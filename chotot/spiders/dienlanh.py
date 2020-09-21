@@ -43,7 +43,7 @@ class DienlanhSpider(scrapy.Spider):
             yield Request(item_url, callback=self.parse_item, meta={'time': posted_time[index]})
 
         next_page_number = 2
-        while (next_page_number < 2):
+        while (next_page_number < 1296):
             absolute_next_page_url = 'https://www.chotot.com/toan-quoc/mua-ban-tu-lanh-may-lanh-may-giat?page=' + str(
                 next_page_number)
             next_page_number = next_page_number + 1

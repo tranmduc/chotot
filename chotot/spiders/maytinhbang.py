@@ -43,7 +43,7 @@ class MaytinhbangSpider(scrapy.Spider):
             yield Request(item_url, callback=self.parse_item, meta={'time': posted_time[index]})
 
         next_page_number = 2
-        while (next_page_number < 3):
+        while (next_page_number < 315):
             absolute_next_page_url = 'https://www.chotot.com/toan-quoc/mua-ban-may-tinh-bang?page=' + str(
                 next_page_number)
             next_page_number = next_page_number + 1
