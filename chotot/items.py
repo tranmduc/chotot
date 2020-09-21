@@ -125,7 +125,7 @@ class Dienthoai(Item):
     ship = Field()
     guarantee = Field()
 
-class Oto(Item):
+class Xe(Item):
     id = Field()
     url = Field()
     title = Field()
@@ -136,18 +136,7 @@ class Oto(Item):
     seller_type = Field()
     crawled_time = Field()
     posted_time = Field()
-
-    brand = Field()
-    produced_year = Field()
-    status = Field()
-    fuel = Field()
-    seed_count = Field()
-    series = Field()
-    km_count = Field()
-    transmission = Field()
-    design = Field()
-    video = Field()
-    made_in = Field()
+    type = Field()
 
 class generalItem(Item):
     id = Field()
